@@ -1,18 +1,18 @@
 # AI-Driven High-Volatility Forecasts for Turkish Equity Markets
 
-An end-to-end Machine Learning pipeline predicting short-term price movements of Turkish Airlines (THYAO.IS) on the Borsa Istanbul (BIST) using Walk-Forward Validation and ensemble methods.
+An end-to-end Machine Learning pipeline predicting short-term price movements of Turkish Airlines (THYAO.IS) listed on the Borsa Istanbul (BIST).
 
-Key Highlights & Academic Insights:
-  Model: Random Forest Classifier trained on advanced technical indicators (RSI, MACD, Stochastic Oscillator, ATR).
-  Validation: Robust Walk-Forward Validation (rolling window of 1000 days train / 250 days test) to prevent overfitting.
-  Realistic Constraints: Incorporates 0.05% transaction fees per trade.
-  The Insight: During hyperinflationary environments, passive asset holding (Buy & Hold) significantly outperforms daily trading algorithms due to friction costs and strong macroeconomic momentum.
+##  Key Highlights & Features
+* **Data Pipeline:** Automated historical OHLCV data ingestion via Yahoo Finance API (`yfinance`).
+* **Feature Engineering:** Relative Strength Index (RSI), Simple Moving Averages (SMA), Exponential Moving Averages (EMA), and Bollinger Band Volatility metrics.
+* **Model:** Gradient Boosting Classifier trained on temporal historical splits to prevent data leakage.
+* **Backtesting:** Automated evaluation engine generating equity curves, confusion matrices, and feature importance analyses.
 
-Performance Chart
-The performance of the model compared to the Buy & Hold strategy:
-![Strategy Performance](plots/strategy_performance.png)
+##  Performance Chart
+![Cumulative Returns](output/cumulative_returns.png)
 
-Project Structure:
-  `advanced_bot.py` - Core execution script (data fetch, feature engineering, training, backtesting).
-  `data/` - Cached historical CSV data.
-  `plots/` - Output performance charts.
+##  Project Structure
+* `main.py` - Core execution script running the full end-to-end pipeline.
+* `src/` - Modular source code (`fetch_data.py`, `features.py`, `model.py`, `backtest.py`, `plot.py`).
+* `data/` - Cached historical CSV market data.
+* `output/` - Output charts and backtest CSV results.
